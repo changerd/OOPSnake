@@ -23,6 +23,10 @@ namespace OOPSnake
             leftBorder.Draw();
             rightBorder.Draw();
 
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.LEFT);
+            snake.Draw();
+
             Console.ReadKey();
         }       
     }

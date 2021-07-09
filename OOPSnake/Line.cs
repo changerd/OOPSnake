@@ -10,6 +10,11 @@ namespace OOPSnake
     {
         protected List<Point> Points;
 
+        public Line()
+        {
+            Points = new List<Point>();
+        }
+
         public void Draw()
         {
             foreach(Point p in Points)
