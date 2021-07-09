@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace OOPSnake
 {
-    public class VerticalLine
+    class VerticalLine : Line
     {
-        List<Point> Points;
-
         public VerticalLine(int yTop, int yBot, int x, char symb)
         {
             Points = new List<Point>();
@@ -17,14 +15,6 @@ namespace OOPSnake
             {
                 Points.Add(new Point(x, y, symb));
             }            
-        }
-
-        public void Draw()
-        {
-            foreach (Point p in Points)
-            {
-                p.Draw();
-            }
-        }
+        }        
     }
 }
