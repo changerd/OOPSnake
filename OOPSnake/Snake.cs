@@ -8,14 +8,37 @@ namespace OOPSnake
 {
     class Snake : Line
     {
+        Direction Direction;
+
         public Snake(Point tail, int length, Direction direction)
         {
+            Direction = direction;
+
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
-                p.Move(i, direction);
+                p.Move(i, Direction);
                 Points.Add(p);
             }
+        }
+
+        public void Move()
+        {
+            Point tail = Points.First();
+            Points.Remove(tail);
+            Point head = GetNextPoint();
+            Points.Add(head);
+
+            tail.Clear();
+            head.Draw();
+        }
+
+        public Point GetNextPoint()
+        {
+            Point head = Points.Last();
+            Point nextPoint = new Point(head);
+            nextPoint.Move(1, Direction);
+            return nextPoint;
         }
     }
 }

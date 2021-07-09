@@ -50,5 +50,11 @@ namespace OOPSnake
                     break;
             }                
         }
+
+        public void Clear()
+        {
+            symbol = ' ';
+            Draw();
+        }
     }
 }
