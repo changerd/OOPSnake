@@ -59,5 +59,18 @@ namespace OOPSnake
                     break;
             }
         }
+
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.symbol = head.symbol;
+                Points.Add(food);
+                return true;
+            }
+
+            return false;
+        }
     }
 }
