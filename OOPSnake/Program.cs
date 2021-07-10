@@ -43,7 +43,7 @@ namespace OOPSnake
                     snake.Move();
                 }
 
-                Thread.Sleep(100);
+                Thread.Sleep(200);
 
                 if (Console.KeyAvailable)
                 {
@@ -51,8 +51,28 @@ namespace OOPSnake
                     snake.KeyHandler(key.Key);
                 }               
             }
+            WriteGameOver();
 
             Console.ReadKey();
-        }       
+        }
+
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("=================", xOffset, yOffset++);
+            WriteText("Г А М Е  О В Е Р", xOffset + 1, yOffset++);
+            yOffset++;            
+            WriteText("=================", xOffset, yOffset++);
+        }
+
+        static void WriteText(string text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
     }
 }
