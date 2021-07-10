@@ -29,7 +29,7 @@ namespace OOPSnake
             Point head = GetNextPoint();
             Points.Add(head);
 
-            tail.Clear();
+            tail.Clear();            
             head.Draw();
         }
 
@@ -39,6 +39,25 @@ namespace OOPSnake
             Point nextPoint = new Point(head);
             nextPoint.Move(1, Direction);
             return nextPoint;
+        }
+
+        public void KeyHandler(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                    Direction = Direction.LEFT;
+                    break;
+                case ConsoleKey.RightArrow:
+                    Direction = Direction.RIGHT;
+                    break;
+                case ConsoleKey.UpArrow:
+                    Direction = Direction.UP;
+                    break;
+                case ConsoleKey.DownArrow:
+                    Direction = Direction.DOWN;
+                    break;
+            }
         }
     }
 }

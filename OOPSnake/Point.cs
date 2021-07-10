@@ -37,16 +37,16 @@ namespace OOPSnake
             switch(direction)
             {
                 case Direction.LEFT:
-                    x += offset;
-                    break;
-                case Direction.RIGHT:
                     x -= offset;
                     break;
+                case Direction.RIGHT:
+                    x += offset;
+                    break;
                 case Direction.UP:
-                    y += offset;
+                    y -= offset;
                     break;
                 case Direction.DOWN:
-                    y -= offset;
+                    y += offset;
                     break;
             }                
         }
@@ -54,7 +54,7 @@ namespace OOPSnake
         public void Clear()
         {
             symbol = ' ';
-            Draw();
+            Draw();           
         }
     }
 }
