@@ -22,5 +22,31 @@ namespace OOPSnake
                 p.Draw();
             }    
         }
+
+        public bool IsHit(Line line)
+        {
+            foreach(Point p in Points)
+            {
+                if(line.IsHit(p))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        bool IsHit(Point point)
+        {
+            foreach(Point p in Points)
+            {
+                if(p.IsHit(point))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

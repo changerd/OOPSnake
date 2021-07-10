@@ -72,5 +72,19 @@ namespace OOPSnake
 
             return false;
         }
+
+        public bool IsHitTail()
+        {
+            Point head = Points.Last();
+            for(int i = 0; i < Points.Count - 2; i++)
+            {
+                if (head.IsHit(Points[i]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

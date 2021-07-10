@@ -14,15 +14,8 @@ namespace OOPSnake
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
-            //Borders
-            HorizontalLine topBorder = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine bottomBorder = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine leftBorder = new VerticalLine(0, 24, 0, '+');
-            VerticalLine rightBorder = new VerticalLine(0, 24, 78, '+');
-            topBorder.Draw();
-            bottomBorder.Draw();
-            leftBorder.Draw();
-            rightBorder.Draw();
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
 
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 2, Direction.RIGHT);
@@ -34,6 +27,11 @@ namespace OOPSnake
             
             while(true)
             {
+                if(walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -52,7 +50,9 @@ namespace OOPSnake
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.KeyHandler(key.Key);
                 }               
-            }           
+            }
+
+            Console.ReadKey();
         }       
     }
 }
