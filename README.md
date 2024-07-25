@@ -1,6 +1,4 @@
 # Implemented
-*Snake spawn and control
-*Food spawn and eating
-*Walls and self crashes
-
-# Future features
+- Snake spawn and control
+- Food spawn and eating
+- Walls and self crashes
